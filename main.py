@@ -81,7 +81,7 @@ for j in range(len(symbols)):
     df.drop(candle_names, axis = 1, inplace = True)
     #end of pattern recognition
     #print(df)
-    requete_tg = "https://api.telegram.org/bot5411991680:AAFy6iaOM04-uA768pcK8mFyZFrw5nJFq-4/sendMessage?chat_id=-1001794122649&text="
+    requete_tg = api_keys.requete_tg
     rsi = df['rsi'].tolist()
     rsi = rsi[-1]
     patou = df['candlestick_pattern'].tolist()
