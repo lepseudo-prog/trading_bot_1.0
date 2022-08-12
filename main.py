@@ -5,6 +5,8 @@ from pybit import usdt_perpetual
 import talib as ta
 import pandas as pd
 import numpy as np
+import requests
+
 #authentification with bybit API
 
 session_auth = usdt_perpetual.HTTP(
@@ -79,15 +81,20 @@ for j in range(len(symbols)):
     df.drop(candle_names, axis = 1, inplace = True)
     #end of pattern recognition
     #print(df)
+    requete_tg = "https://api.telegram.org/bot5411991680:AAFy6iaOM04-uA768pcK8mFyZFrw5nJFq-4/sendMessage?chat_id=-1001794122649&text="
     rsi = df['rsi'].tolist()
     rsi = rsi[-1]
     patou = df['candlestick_pattern'].tolist()
     patou = patou[-1]
     if patou.endswith('_Bear') and rsi >= 70:
-        print(df)
-        print("SHORT", symbols[j])
+        call = "SHORT " + str(symbols[j]) + " Enter : " + str(df['close'].tolist()[-1])
+        print(call)
+        requete_tg = requete_tg + call
+        requests.get(requete_tg)
     elif patou.endswith('_Bull') and rsi <= 30:
-        print(df)
-        print('LONG', symbols[j])
+        call = "LONG " + str(symbols[j]) + " Enter : " + str(df['close'].tolist()[-1])
+        print(call)
+        requete_tg = requete_tg + call
+        requests.get(requete_tg)
     else:
         print(symbols[j], "has no matches")
