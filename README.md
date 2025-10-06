@@ -7,7 +7,7 @@ This (when fnished) will be a python based trading bot using ML/DP.
 ```bash
 git clone https://github.com/lepseudo-prog/trading_bot_1.0
 
-cd crypto-bot
+cd trading_bot_1.0
 ```
 ### 2: Create and activate a virtual environment:
 ```bash
@@ -18,4 +18,9 @@ source venv/bin/activate
 ### Install dependencies:
 ```bash
 pip install hyperliquid-python-sdk pandas numpy requests
+```
+
+### Fetch data
+```bash
+python fetch_data.py
 ```
