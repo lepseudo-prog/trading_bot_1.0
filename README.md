@@ -1,5 +1,5 @@
 # Crypto Trading Bot with ML and SMC Concepts
-This (when fnished) will be a python based trading bot using ML/DP.
+This (when fnished) will be a python based trading bot using ML.
 
 ## Setup instructions
 
@@ -15,12 +15,22 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### Install dependencies:
+### 3: Install dependencies:
 ```bash
 pip install hyperliquid-python-sdk pandas numpy requests
 ```
 
-### Fetch data
+### 4: Fetch data
 ```bash
 python fetch_data.py
+```
+
+### 5: Run the bot
+```bash
+python main.py
+```
+
+### 6: Deactivate When Done:
+```bash
+deactivate
 ```
